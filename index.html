@@ -29,9 +29,14 @@
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra mais destacada */
             width: 100%;
             max-width: 400px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        form:hover {
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); /* Efeito ao passar o mouse */
         }
 
         label {
@@ -61,6 +66,8 @@
             cursor: pointer;
             width: 100%;
             font-size: 1.1em;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
         }
 
         button:hover {

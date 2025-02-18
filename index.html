@@ -4,6 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecionamento Dinâmico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1em;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsivo */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+
+            input[type="text"], input[type="email"], button {
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -15,7 +85,7 @@
     <label for="email">E-mail:</label>
     <input type="email" id="email" name="email" required><br><br>
 
-    <button type="submit">Acessar WhatsApp</button>
+    <button type="submit">Agendar uma avaliação.</button>
 </form>
 
 <script>
@@ -25,11 +95,10 @@
         const name = encodeURIComponent(document.getElementById('name').value);
         const email = encodeURIComponent(document.getElementById('email').value);
         
-        const phoneNumber = '5511933393762'; // Altere para o número correto
+        const phoneNumber = '5511933393762';
         const message = `Olá, meu nome é ${name} e meu email é ${email}. Gostaria de saber mais sobre o Infinite-stack.`;
         const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
-        // Redireciona diretamente para o WhatsApp (ou para o Linktree se preferir)
         window.location.href = waLink;
     });
 </script>

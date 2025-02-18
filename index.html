@@ -7,20 +7,20 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e0f7fa; /* Azul claro */
+            background-color: #fff; /* Fundo branco */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #333;
+            color: rgb(52, 152, 219); /* Cor das letras */
             text-align: center;
             flex-direction: row;
         }
 
         h2 {
-            color: #4CAF50;
+            color: rgb(52, 152, 219); /* Cor do título */
             margin-bottom: 20px;
             font-size: 1.5em;
         }
@@ -38,6 +38,7 @@
             font-size: 1.1em;
             margin-bottom: 5px;
             display: block;
+            color: rgb(52, 152, 219); /* Cor do texto */
         }
 
         input[type="text"],
@@ -52,7 +53,7 @@
         }
 
         button {
-            background-color: #4CAF50;
+            background-color: rgb(52, 152, 219); /* Cor do botão */
             color: white;
             padding: 10px 20px;
             border: none;
@@ -63,12 +64,12 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: rgb(41, 122, 173); /* Cor do botão ao passar o mouse */
         }
 
         img {
             flex-direction: column;
-            height: 50px;
+            height: 35px;
             margin-right: 20px;
         }
 
@@ -103,7 +104,7 @@
     <label for="email">E-mail:</label>
     <input type="email" id="email" name="email" required><br><br>
 
-    <button type="submit">Fale conosco</button>
+    <button type="submit">Agendar uma avaliação.</button>
 </form>
 
 <script>

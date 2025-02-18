@@ -15,11 +15,12 @@
             align-items: center;
             height: 100vh;
             color: #333;
+            text-align: center;
         }
 
         h2 {
             color: #4CAF50;
-            text-align: center;
+            margin-bottom: 20px;
         }
 
         form {
@@ -89,19 +90,4 @@
 </form>
 
 <script>
-    document.getElementById('redirectForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const name = encodeURIComponent(document.getElementById('name').value);
-        const email = encodeURIComponent(document.getElementById('email').value);
-        
-        const phoneNumber = '5511933393762';
-        const message = `Olá, meu nome é ${name} e meu email é ${email}. Gostaria de saber mais sobre o Infinite-stack.`;
-        const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
-
-        window.location.href = waLink;
-    });
-</script>
-
-</body>
-</html>
+    document.g

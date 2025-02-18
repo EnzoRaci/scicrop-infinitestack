@@ -65,6 +65,12 @@
             background-color: #45a049;
         }
 
+        img{
+            flex-direction: column;
+            height:35px;
+            
+        }
+
         /* Responsivo */
         @media (max-width: 600px) {
             form {
@@ -98,7 +104,7 @@
         const name = encodeURIComponent(document.getElementById('name').value);
         const email = encodeURIComponent(document.getElementById('email').value);
         
-        const phoneNumber = '5511933393762';
+        const phoneNumber = '5511974403167';
         const message = `Olá, meu nome é ${name} e meu email é ${email}. Gostaria de saber mais sobre o Infinite-stack.`;
         const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
 

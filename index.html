@@ -7,20 +7,20 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff;
+            background-color: #fff; /* Fundo branco */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: rgb(52, 152, 219);
+            color: rgb(52, 152, 219); /* Cor das letras */
             text-align: center;
             flex-direction: row;
         }
 
         h2 {
-            color: rgb(52, 152, 219);
+            color: rgb(52, 152, 219); /* Cor do título */
             margin-bottom: 20px;
             font-size: 1.5em;
         }
@@ -80,6 +80,7 @@
             margin-right: 20px;
         }
 
+        /* Responsivo */
         @media (max-width: 600px) {
             form {
                 padding: 15px;
@@ -117,39 +118,14 @@
     document.getElementById('redirectForm').addEventListener('submit', function (event) {
         event.preventDefault();
 
-        // Captura os valores do formulário
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
+        const name = encodeURIComponent(document.getElementById('name').value);
+        const email = encodeURIComponent(document.getElementById('email').value);
+        
+        const phoneNumber = '5511974403167';
+        const message = Olá, meu nome é ${name} e gostaria de saber mais sobre a Infinite Stack. Poderia me passar mais informações ou enviá-las para ${email}?;
+        const waLink = https://wa.me/${phoneNumber}?text=${message};
 
-        // Cria um objeto com os dados
-        const data = {
-            name: name,
-            email: email
-        };
-
-        // URL do Google Apps Script prefixada com o cors-anywhere
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbwHoMtx63DBH8xMVexpg8Z9Fn_C6aJWUu9IsbcYQvK4zX3TPp0xgHgM2aSZVd1TUxeo8g/exec';
-
-        // Envia os dados para o Google Apps Script via cors-anywhere
-        fetch(proxyUrl, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(data => {
-            console.log('Success:', data);
-
-            // Redireciona para o WhatsApp após o envio bem-sucedido
-            const phoneNumber = '5511974403167'; // Adicione o número de telefone aqui
-            const message = `Olá, meu nome é ${name} e gostaria de saber mais sobre a Infinite Stack. Poderia me passar mais informações?`;
-            const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.location.href = waLink;
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+        window.location.href = waLink;
     });
 </script>
 

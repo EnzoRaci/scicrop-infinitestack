@@ -116,17 +116,17 @@
 
 <script>
     document.getElementById('redirectForm').addEventListener('submit', function (event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        const name = encodeURIComponent(document.getElementById('name').value);
-        const email = encodeURIComponent(document.getElementById('email').value);
-        
-        const phoneNumber = '5511974403167';
-        const message = `Olá, meu nome é ${name} e gostaria de saber mais sobre a Infinite Stack. Poderia me passar mais informações ou enviá-las para ${email}?`;
-        const waLink = https://wa.me/${phoneNumber}?text=${message};
+    const name = encodeURIComponent(document.getElementById('name').value);
+    const email = encodeURIComponent(document.getElementById('email').value);
+    
+    const phoneNumber = '5511974403167';
+    const message = `Olá, meu nome é ${name} e gostaria de saber mais sobre a Infinite Stack. Poderia me passar mais informações ou enviá-las para ${email}?`;
+    const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
-        window.location.href = waLink;
-    });
+    window.location.href = waLink;
+});
 </script>
 
 </body>

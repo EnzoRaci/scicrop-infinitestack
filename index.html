@@ -7,20 +7,20 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff; /* Fundo branco */
+            background-color: #fff;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: rgb(52, 152, 219); /* Cor das letras */
+            color: rgb(52, 152, 219);
             text-align: center;
             flex-direction: row;
         }
 
         h2 {
-            color: rgb(52, 152, 219); /* Cor do título */
+            color: rgb(52, 152, 219);
             margin-bottom: 20px;
             font-size: 1.5em;
         }
@@ -80,7 +80,6 @@
             margin-right: 20px;
         }
 
-        /* Responsivo */
         @media (max-width: 600px) {
             form {
                 padding: 15px;
@@ -118,14 +117,33 @@
     document.getElementById('redirectForm').addEventListener('submit', function (event) {
         event.preventDefault();
 
-        const name = encodeURIComponent(document.getElementById('name').value);
-        const email = encodeURIComponent(document.getElementById('email').value);
-        
-        const phoneNumber = '11974403167';
-        const message = `Olá, meu nome é ${name} e meu email é ${email}. Gostaria de saber mais sobre o Infinite-stack.`;
-        const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
 
-        window.location.href = waLink;
+        const data = {
+            name: name,
+            email: email
+        };
+
+        fetch('https://script.google.com/macros/s/AKfycbwHoMtx63DBH8xMVexpg8Z9Fn_C6aJWUu9IsbcYQvK4zX3TPp0xgHgM2aSZVd1TUxeo8g/exec', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log('Success:', data);
+
+            const phoneNumber = '11974403167'; // Adicione o número de telefone aqui
+            const message = `Olá, meu nome é ${name} e gostaria de saber mais sobre a Infinite Stack. Poderia me passar mais informações?`;
+            const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.location.href = waLink;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     });
 </script>
 

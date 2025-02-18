@@ -138,13 +138,6 @@
                 'Content-Type': 'application/json'
             }
         })
-        .then(response => {
-            console.log('Status:', response.status); // Verifique o status da resposta
-            if (!response.ok) {
-                throw new Error('Erro na requisição: ' + response.statusText);
-            }
-            return response.json(); // Parseia a resposta como JSON
-        })
         .then(data => {
             console.log('Success:', data);
 
